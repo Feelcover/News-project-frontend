@@ -1,8 +1,8 @@
-import React from 'react';
-import { Typography, IconButton, MenuItem, Menu } from '@material-ui/core';
-import MoreIcon from '@material-ui/icons/MoreHorizOutlined';
+import React from "react";
+import { Typography, IconButton, MenuItem, Menu } from "@material-ui/core";
+import MoreIcon from "@material-ui/icons/MoreHorizOutlined";
 
-import styles from './Comment.module.scss';
+import styles from "./Comment.module.scss";
 
 interface CommentPostProps {
   user: {
@@ -13,7 +13,11 @@ interface CommentPostProps {
   createdAt: string;
 }
 
-export const Comment: React.FC<CommentPostProps> = ({user, text, createdAt}) => {
+export const Comment: React.FC<CommentPostProps> = ({
+  user,
+  text,
+  createdAt,
+}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -27,16 +31,11 @@ export const Comment: React.FC<CommentPostProps> = ({user, text, createdAt}) => 
   return (
     <div className={styles.comment}>
       <div className={styles.userInfo}>
-        <img
-          src={user.avatarUrl}
-          alt="Avatar"
-        />
+        <img src={user.avatarUrl} alt="Avatar" />
         <b>{user.fullname}</b>
         <span>{createdAt}</span>
       </div>
-      <Typography className={styles.text}>
-        {text}
-      </Typography>
+      <Typography className={styles.text}>{text}</Typography>
       <span className={styles.replyBtn}>Ответить</span>
       <IconButton onClick={handleClick}>
         <MoreIcon />
@@ -46,7 +45,8 @@ export const Comment: React.FC<CommentPostProps> = ({user, text, createdAt}) => 
         elevation={2}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        keepMounted>
+        keepMounted
+      >
         <MenuItem onClick={handleClose}>Удалить</MenuItem>
         <MenuItem onClick={handleClose}>Редактировать</MenuItem>
       </Menu>
