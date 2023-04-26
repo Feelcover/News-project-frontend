@@ -1,19 +1,28 @@
 import React from "react";
-import { Paper, Button, IconButton, Avatar, List, ListItem } from "@material-ui/core";
-import SearchIcon from "@mui/icons-material/Search";
-import CreateIcon from "@mui/icons-material/BorderColor";
-import MessageIcon from '@mui/icons-material/ChatBubbleOutline';
-import NotificationIcon from '@mui/icons-material/NotificationsNone';
+import {
+  Paper,
+  Button,
+  IconButton,
+  Avatar,
+  List,
+  ListItem,
+} from "@material-ui/core";
+import {
+  Search as SearchIcon,
+  BorderColor as CreateIcon,
+  ChatBubbleOutline as MessageIcon,
+  NotificationsNone as NotificationIcon
+} from "@mui/icons-material";
 import styles from "./Header.module.scss";
 
 export const Header: React.FC = () => {
   return (
-    <Paper classes={{root:styles.paper}}>
+    <Paper classes={{ root: styles.paper }}>
       <div>
         <a>
           <img
             height={35}
-            className="mr-20"
+            className={styles.logo}
             src="/static/img/logo.jpg"
             alt="Logo"
           />
@@ -27,17 +36,17 @@ export const Header: React.FC = () => {
         </Button>
       </div>
       <div>
-      <IconButton>
+        <IconButton>
           <MessageIcon />
         </IconButton>
         <IconButton>
           <NotificationIcon />
         </IconButton>
         <Avatar
-                className={styles.avatar}
-                alt="Remy Sharp"
-                src="https://i.playground.ru/p/vOQQQO7dUl7oVvbUNJlDJQ.png?255x255"
-              />
+          className={styles.avatar}
+          alt="Remy Sharp"
+          src="https://i.playground.ru/p/vOQQQO7dUl7oVvbUNJlDJQ.png?255x255"
+        />
       </div>
     </Paper>
   );
