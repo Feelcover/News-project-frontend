@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header';
+import { LeftSideBar } from '@/components/LeftSideBar';
 import { Post } from '@/components/Post';
 import Head from 'next/head';
 
@@ -17,9 +18,10 @@ export default function Home() {
       </Head>
       <Header />
       <div>
-        <div className="leftContainer"></div>
+        <div className="leftContainer">
+          <LeftSideBar/>
+        </div>
         <div className="main">
-          
         <Post/>
         </div>
         <div className="rightContainer"></div>
