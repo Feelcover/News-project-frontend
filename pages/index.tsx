@@ -1,8 +1,6 @@
 import { Header } from '@/components/Header';
 import { Post } from '@/components/Post';
-import { Paper, Typography } from '@material-ui/core';
 import Head from 'next/head';
-import Image from 'next/image';
 
 export default function Home() {
   return (
