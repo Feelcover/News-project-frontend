@@ -1,4 +1,4 @@
-# Фулл стэк проект News-project-frontend
+# Проект News-project-frontend
 
 * Проект на стеке NextJS, TS, Redux Saga, NestJS, PostgreSQL
 
