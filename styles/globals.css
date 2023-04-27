@@ -17,3 +17,9 @@ a {
   outline: none;
   font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
 }
+
+.main {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
