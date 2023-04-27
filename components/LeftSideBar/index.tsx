@@ -1,11 +1,9 @@
 import { Button } from '@material-ui/core';
-import WhatshotTwoToneIcon from '@mui/icons-material/WhatshotTwoTone';
 import {
-  Search as SearchIcon,
-  BorderColor as CreateIcon,
   SmsOutlined as MessageIcon,
-  NotificationsNone as NotificationIcon,
-  Menu as MenuIcon,
+  FormatListBulleted as ListIcon,
+  WhatshotTwoTone as LentaIcon,
+  StarHalf as RatingIcon
 } from '@mui/icons-material';
 import React from 'react';
 import styles from './LeftSideBar.module.scss';
@@ -16,15 +14,26 @@ export const LeftSideBar = () => {
       <ul className={styles.menu}>
         <li>
           <Button>
-            <WhatshotTwoToneIcon />
+            <LentaIcon />
             <p className={styles.menuItems}>Лента</p>
-            
           </Button>
         </li>
         <li>
           <Button>
-            <MenuIcon />
+            <MessageIcon />
             <p className={styles.menuItems}>Сообщения</p>
+          </Button>
+        </li>
+        <li>
+          <Button>
+            <RatingIcon />
+            <p className={styles.menuItems}>Рейтинг</p>
+          </Button>
+        </li>
+        <li>
+          <Button>
+            <ListIcon />
+            <p className={styles.menuItems}>Подписки</p>
           </Button>
         </li>
       </ul>
