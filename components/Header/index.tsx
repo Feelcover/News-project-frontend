@@ -19,14 +19,14 @@ export const Header: React.FC = () => {
         <a className={styles.logoContainer}>
           <img className={styles.logo} src="/static/img/logo.png" alt="Logo" />
         </a>
-        <div className={styles.searchContainer}>
+      </div>
+      <div className={styles.searchContainer}>
           <SearchIcon />
           <input placeholder="Поиск" />
         </div>
         <Button className={styles.createButton} variant="contained">
-          <CreateIcon />
+          <p>Новая запись</p>
         </Button>
-      </div>
       <div className={styles.headerRight}>
         <IconButton>
           <MessageIcon />

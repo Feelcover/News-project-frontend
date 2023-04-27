@@ -8,6 +8,7 @@
   height: 60px;
   margin-bottom: 14px;
   z-index: 1;
+  position: fixed;
 }
 .headerLeft {
   display: flex;
@@ -26,7 +27,7 @@
 .logo {
   width: 33px;
   height: 34px;
-  margin-right: 25px;
+  margin-right: 55px;
   margin-left: 10px;
 }
 .searchContainer {
@@ -63,7 +64,11 @@
 
 .createButton {
     min-width: 40px !important;
-    width: 40px !important
+    height: 40px;
+    p{
+      margin: 0;
+      font-size: 14px;
+    }
 }
 
 .avatar {

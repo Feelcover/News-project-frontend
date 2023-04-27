@@ -17,11 +17,14 @@ export default function Home() {
         />
       </Head>
       <Header />
-      <div>
+      <div className='wrapper'>
         <div className="leftContainer">
           <LeftSideBar/>
         </div>
         <div className="main">
+        <Post/>
+        <Post/>
+        <Post/>
         <Post/>
         </div>
         <div className="rightContainer"></div>
