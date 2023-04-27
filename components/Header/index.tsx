@@ -3,7 +3,7 @@ import { Paper, Button, IconButton, Avatar, List, ListItem } from '@material-ui/
 import {
   Search as SearchIcon,
   BorderColor as CreateIcon,
-  ChatBubbleOutline as MessageIcon,
+  SmsOutlined as MessageIcon,
   NotificationsNone as NotificationIcon,
   Menu as MenuIcon,
 } from '@mui/icons-material';
@@ -14,15 +14,15 @@ export const Header: React.FC = () => {
     <Paper classes={{ root: styles.paper }}>
         <div className={styles.headerLeft}>
           <IconButton><MenuIcon/></IconButton>
-          <a>
-            <img height={35} className={styles.logo} src="/static/img/logo.jpg" alt="Logo" />
+          <a className={styles.logoContainer}>
+            <img className={styles.logo} src="/static/img/logo.png" alt="Logo" />
           </a>
           <div className={styles.searchContainer}>
             <SearchIcon />
             <input placeholder="Поиск" />
           </div>
-          <Button>
-            <CreateIcon />
+          <Button variant="contained">
+            <CreateIcon/>
           </Button>
         </div>
         <div className={styles.headerRight}>
