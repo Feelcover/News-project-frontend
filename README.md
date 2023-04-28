@@ -2,5 +2,5 @@
 
 * Проект на стеке NextJS, TS, Redux Saga, NestJS, PostgreSQL
 
-* [Репозиторий серверной части проекта](https://github.com/Feelcover/News-project-backend)
+* [Репозиторий серверной части проекта](https://github.com/Feelcover/RJ-backend)
 
