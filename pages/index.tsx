@@ -1,14 +1,14 @@
+import { CommentsSideBar } from '@/components/CommentsSideBar';
 import { Header } from '@/components/Header';
-import { LeftSideBar } from '@/components/LeftSideBar';
+import { LeftSideBar } from '@/components/MenuSideBar';
 import { Post } from '@/components/Post';
-import Head from 'next/head';
 
 export default function Home() {
   return (
     <div>
       <Header />
       <div className='wrapper'>
-        <div className="leftContainer">
+        <div className="menuContainer">
           <LeftSideBar/>
         </div>
         <div className="main">
@@ -17,7 +17,9 @@ export default function Home() {
         <Post/>
         <Post/>
         </div>
-        <div className="rightContainer"></div>
+        <div className="commentsContainer">
+          <CommentsSideBar/>
+        </div>
       </div>
     </div>
   );

@@ -6,11 +6,11 @@ import {
   StarHalf as RatingIcon
 } from '@mui/icons-material';
 import React from 'react';
-import styles from './LeftSideBar.module.scss';
+import styles from './MenuSideBar.module.scss';
 
 export const LeftSideBar = () => {
   return (
-    <div className={styles.LeftSideBar}>
+    <div className={styles.MenuSideBar}>
       <ul className={styles.menu}>
         <li>
           <Button>
