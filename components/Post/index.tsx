@@ -22,7 +22,7 @@ export const Post: React.FC = () => {
         апокалиптические сюжеты с котом в главной роли.
       </Typography>
       <Image
-        src="https://leonardo.osnova.io/a21ca5a9-d95b-560d-9a6f-9fa87eff7fcd/-/preview/600/-/format/webp/"
+        src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
         height={500}
         width={600}
       />

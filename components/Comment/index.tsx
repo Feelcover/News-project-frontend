@@ -26,7 +26,7 @@ export const Comment: React.FC<CommentPostProps> = ({ user, text }) => {
     <div className={styles.comment}>
       <div className={styles.userInfo}>
         <img
-          src="https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/"
+          src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
           alt="Avatar"
         />
         <b>Master Oogway</b>

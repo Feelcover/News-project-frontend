@@ -22,8 +22,8 @@ export default function Profile() {
         <div className="d-flex justify-between">
           <div>
             <Avatar
-              style={{ width: 120, height: 120, borderRadius: 6 }}
-              src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+              style={{ width: 120, height: 120 }}
+              src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
             />
             <Typography
               style={{ fontWeight: "bold" }}
@@ -79,11 +79,11 @@ export default function Profile() {
           <div className="d-flex mt-15">
             <Avatar
               className="mr-10"
-              src="https://leonardo.osnova.io/2d20257c-fec5-4b3e-7f60-055c86f24a4d/-/scale_crop/108x108/-/format/webp/"
+              src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
             />
             <Avatar
               className="mr-10"
-              src="https://leonardo.osnova.io/2d20257c-fec5-4b3e-7f60-055c86f24a4d/-/scale_crop/108x108/-/format/webp/"
+              src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
             />
           </div>
         </Paper>

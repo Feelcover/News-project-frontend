@@ -7,11 +7,6 @@ export const theme = createTheme({
     },
   },
   overrides: {
-    MuiPaper: {
-      rounded: {
-        borderRadius: 8,
-      },
-    },
     MuiPopover: {},
     MuiButton: {
       root: {
