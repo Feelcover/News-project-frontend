@@ -1,4 +1,4 @@
-# Проект News-project-frontend
+# Проект RJ-project-frontend
 
 * Проект на стеке NextJS, TS, Redux Saga, NestJS, PostgreSQL
 
