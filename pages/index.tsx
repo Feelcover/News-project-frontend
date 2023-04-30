@@ -7,9 +7,6 @@ export default function Home() {
       <Post />
       <Post />
       <Post />
-      <Post />
-      <Post />
-      <Post />
     </MainLayout>
   );
 }
