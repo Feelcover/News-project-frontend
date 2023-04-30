@@ -34,7 +34,7 @@ export const Comment: React.FC<CommentPostProps> = ({ user, text }) => {
       </div>
       <Typography className={styles.text}>
         Суперджет это ад адский, два раза летала и оба раза прощалась с жизнью. Трясёт хуже, чем в
-        копейке по разьебанной дороге
+        копейке по плохой дороге
       </Typography>
       <span className={styles.replyBtn}>Ответить</span>
       <IconButton onClick={handleClick}>

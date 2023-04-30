@@ -40,7 +40,7 @@ export const FullPost = () => {
                 src="https://i.playground.ru/e/RwI1VTZpbZS9M9_4BRvDZg.jpeg?1200x1200"
                 alt="Avatar"
               />
-              <b>Donnie Darko</b>
+              <b>Александр Гончаров</b>
               <span>+1685</span>
             </div>
             <div>
