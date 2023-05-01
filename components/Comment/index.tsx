@@ -4,14 +4,14 @@ import MoreIcon from '@material-ui/icons/MoreHorizOutlined';
 
 import styles from './Comment.module.scss';
 
-interface CommentPostProps {
-  user: {
-    fullname: string;
-  };
-  text: string;
-}
+// interface CommentPostProps {
+//   user: {
+//     fullname: string;
+//   };
+//   text: string;
+// }
 
-export const Comment: React.FC<CommentPostProps> = () => {
+export const Comment: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
