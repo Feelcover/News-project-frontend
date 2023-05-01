@@ -1,13 +1,11 @@
-import { TextField } from '@material-ui/core'
 import React from 'react'
+import WriteArea from '../components/WriteArea/WriteArea'
 import { MainLayout } from '../layouts/MainLayout'
 
 const write = () => {
   return (
-    <MainLayout hideComments hideMenu>
-        <div style={{backgroundColor:"F2F2F2"}}>
-        <TextField placeholder='заголовок'></TextField>
-        </div>
+    <MainLayout className="layout-white" hideComments hideMenu>
+        <WriteArea/>
         </MainLayout>
   )
 }
