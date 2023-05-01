@@ -9,7 +9,7 @@ interface IWriteArea {
 const WriteArea: FC<IWriteArea> = ({title}) => {
   return (
     <div>
-    <TextField placeholder='заголовок' defaultValue={title}></TextField>
+    <TextField classes={{root:styles.textField}} placeholder='Заголовок' defaultValue={title}></TextField>
     </div>
   )
 }
