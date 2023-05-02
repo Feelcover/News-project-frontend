@@ -1,17 +1,26 @@
-import { TextField } from '@material-ui/core'
-import React, { FC } from 'react'
-import styles from "./WriteArea.module.scss"
+import { Input } from "@material-ui/core";
+import React from "react";
+import styles from "./WriteArea.module.scss";
+import dynamic from "next/dynamic";
 
+const Editor = dynamic(() => import("../Editor").then((m) => m.Editor), {
+  ssr: false,
+});
 interface IWriteArea {
-    title?: string;
+  title?: string;
 }
 
-const WriteArea: FC<IWriteArea> = ({title}) => {
+const WriteArea: React.FC<IWriteArea> = ({ title }) => {
   return (
     <div>
-    <TextField classes={{root:styles.textField}} placeholder='Заголовок' defaultValue={title}></TextField>
+      <Input
+        classes={{ root: styles.textField }}
+        placeholder="Заголовок"
+        defaultValue={title}
+      />
+      <Editor />
     </div>
-  )
-}
+  );
+};
 
-export default WriteArea
+export default WriteArea;
