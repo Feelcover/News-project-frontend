@@ -18,7 +18,9 @@ const WriteArea: React.FC<IWriteArea> = ({ title }) => {
         placeholder="Заголовок"
         defaultValue={title}
       />
-      <Editor />
+      <div className={styles.editor}>
+        <Editor />
+      </div>
     </div>
   );
 };
