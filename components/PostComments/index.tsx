@@ -1,5 +1,6 @@
 import { Divider, Paper, Tab, Tabs, Typography } from "@material-ui/core";
 import React from "react";
+import AddCommentForm from "../AddCommentForm";
 import { Comment } from "../Comment";
 import styles from "./PostComments.module.scss";
 
@@ -20,7 +21,8 @@ interface IComments {
 const PostComments: React.FC<IComments> = ({ items }) => {
   return (
     <Paper elevation={0} className="mt-40 p-30">
-      <Typography variant="h6" className="mb-20">
+     <div className="container">
+     <Typography variant="h6" className="mb-20">
         42 комментария
       </Typography>
       <Tabs
@@ -33,6 +35,7 @@ const PostComments: React.FC<IComments> = ({ items }) => {
         <Tab label="По порядку" />
       </Tabs>
       <Divider />
+      <AddCommentForm/>
       <div className="mb-20" />
       {items.map((item) => (
         <Comment
@@ -42,6 +45,7 @@ const PostComments: React.FC<IComments> = ({ items }) => {
           createdAt={item.createdAt}
         />
       ))}
+     </div>
     </Paper>
   );
 };
