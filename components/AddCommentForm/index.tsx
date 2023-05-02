@@ -1,9 +1,11 @@
 import React from "react";
 import { Input } from "@material-ui/core";
+import styles from "./AddCommentForm.module.scss";
+
 
 const AddCommentForm = () => {
   return (<div>
-    <Input placeholder="Написать комментарий..." fullWidth></Input>
+    <Input classes={{root:styles.input}} placeholder="Написать комментарий..." fullWidth multiline></Input>
   </div>);
 };
 
