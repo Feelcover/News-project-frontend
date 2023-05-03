@@ -1,12 +1,13 @@
-.input{
-    margin-top: 10px;
-    border: 1px solid #f2f2f2;
-    background-color: #f2f2f2;
-    padding-left: 20px !important;
-    height: 50px;
-    border-radius: 8px;
-    cursor: pointer !important;
-    &:after, &:before{
-        display: none;
-    }
+.input {
+  margin-top: 10px;
+  border: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
+  padding-left: 20px !important;
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer !important;
+  &:after,
+  &:before {
+    display: none;
+  }
 }
