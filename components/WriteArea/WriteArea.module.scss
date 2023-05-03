@@ -1,21 +1,21 @@
-.textField{
-    &:before, &:after {
-        display: none !important;
-      }
-    width: 100%;
-    margin-bottom: 10px;
-input{
-    
+.textField {
+  &:before,
+  &:after {
+    display: none !important;
+  }
+  width: 100%;
+  margin-bottom: 10px;
+  input {
     font-size: 28px;
     font-weight: 600;
-}
+  }
 }
 
 .editor {
-    font-size: 18px;
-    height: calc(100vh - 220px);
-  }
+  font-size: 18px;
+  height: calc(100vh - 220px);
+}
 
-  .button {
-    height: 42;
-  }
+.button {
+  height: 42;
+}
