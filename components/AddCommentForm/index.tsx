@@ -5,11 +5,10 @@ import styles from "./AddCommentForm.module.scss";
 const AddCommentForm = () => {
   const [active, serActive] = React.useState(false);
   const [input, setInput] = React.useState('')
-  console.log(input);
   
   const onAdd = () => {
     serActive(false);
-    onChange('');
+    setInput('');
   }
   const onChange = (evt) => {
     setInput(evt.target.value);
@@ -26,7 +25,7 @@ const AddCommentForm = () => {
         fullWidth
         multiline
       ></Input>
-       {active && <Button className={styles.button} variant="contained" color="primary">
+       {active && <Button className={styles.button} variant="contained" color="primary" onClick={onAdd}>
           Опубликовать
         </Button>}
     </div>
