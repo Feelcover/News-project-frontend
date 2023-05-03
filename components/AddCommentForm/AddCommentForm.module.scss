@@ -1,12 +1,22 @@
+.container{
+    position: relative;
+}
 .input {
   margin-top: 10px;
   border: 1px solid #f2f2f2;
   background-color: #f2f2f2;
-  padding-left: 20px !important;
+  padding: 15px !important;
   border-radius: 8px;
   cursor: pointer !important;
   &:after,
   &:before {
     display: none;
   }
+}
+
+.button{
+position: absolute !important;
+right: 15px;
+bottom: 15px;
+
 }
