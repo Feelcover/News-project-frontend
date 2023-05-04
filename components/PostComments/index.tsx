@@ -2,24 +2,14 @@ import { Divider, Paper, Tab, Tabs, Typography } from "@material-ui/core";
 import React from "react";
 import AddCommentForm from "../AddCommentForm";
 import { Comment } from "../Comment";
+import data from "../../data";
 import styles from "./PostComments.module.scss";
 
-type TComment = {
-  id: number;
-  user: {
-    fullname: string;
-    avatarUrl: string;
-  };
-  text: string;
-  createdAt: string;
-};
 
-interface IComments {
-  items: TComment[];
-}
 
-const PostComments: React.FC<IComments> = ({ items }) => {
+const PostComments: React.FC = () => {
   const [active, setActive] = React.useState(0);
+  const comments = data.comments[active ? "popular" : "new"];
 
   return (
     <Paper elevation={0} className="mt-40 p-30">
@@ -39,7 +29,7 @@ const PostComments: React.FC<IComments> = ({ items }) => {
         <Divider />
         <AddCommentForm />
         <div className="mb-20" />
-        {items.map((item) => (
+        {comments.map((item) => (
           <Comment
             key={item.id}
             user={item.user}
