@@ -9,13 +9,13 @@ import styles from "./PostComments.module.scss";
 
 const PostComments: React.FC = () => {
   const [active, setActive] = React.useState(0);
-  const comments = data.comments[active ? "popular" : "new"];
+  const comments = data.comments[active ? "new" : "popular"];
 
   return (
     <Paper elevation={0} className="mt-40 p-30">
       <div className="container">
         <Typography variant="h6" className="mb-20">
-          42 комментария
+          10 комментариев
         </Typography>
         <Tabs
           className="mt-20"
@@ -24,7 +24,7 @@ const PostComments: React.FC = () => {
           textColor="primary"
         >
           <Tab onClick={()=> setActive(0)} label="Популярные" />
-          <Tab onClick={()=> setActive(1)} label="По порядку" />
+          <Tab onClick={()=> setActive(1)} label="Новые" />
         </Tabs>
         <Divider />
         <AddCommentForm />
