@@ -1,45 +1,22 @@
 import React from "react";
-import ArrowRightIcon from "@material-ui/icons/NavigateNextOutlined";
-import data from "../../data"
+import { CommentItem } from "../CommentItem";
+import {
+  NavigateNextOutlined as ArrowRightIcon,
+  NavigateBeforeOutlined as ArrowLeftIcon,
+} from "@material-ui/icons/";
+import data from "../../data";
 import styles from "./SideComments.module.scss";
 
-interface CommentItemProps {
-  user: {
-    fullname: string;
-    avatarUrl: string;
-  };
-  text: string;
-  post: {
-    title: string;
-  };
-}
-
-const CommentItem: React.FC<CommentItemProps> = ({ user, text, post }) => {
-  return (
-    <div className={styles.commentItem}>
-      <div className={styles.userInfo}>
-        <img src={user.avatarUrl} />
-        <a href="#">
-          <b>{user.fullname}</b>
-        </a>
-      </div>
-      <p className={styles.text}>{text}</p>
-      <a href="#">
-        <span className={styles.postTitle}>{post.title}</span>
-      </a>
-    </div>
-  );
-};
-
 export const SideComments = () => {
+  const [active, setActive] = React.useState(true);
+
   return (
-    <div className={styles.root}>
-      <h3>
-        Комментарии <ArrowRightIcon />
-      </h3>
-      {data.comments.popular.map((obj) => (
-        <CommentItem key={obj.id} {...obj} />
-      ))}
+    <div className={styles.root} >
+      <h3 onClick={() => setActive(!active)}>Комментарии {active ? <ArrowRightIcon /> : <ArrowLeftIcon />}</h3>
+      {active &&
+        data.comments.popular.map((obj) => (
+          <CommentItem key={obj.id} {...obj} />
+        ))}
     </div>
   );
 };
