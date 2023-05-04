@@ -19,33 +19,35 @@ interface IComments {
 }
 
 const PostComments: React.FC<IComments> = ({ items }) => {
+  const [active, setActive] = React.useState(0);
+
   return (
     <Paper elevation={0} className="mt-40 p-30">
-     <div className="container">
-     <Typography variant="h6" className="mb-20">
-        42 комментария
-      </Typography>
-      <Tabs
-        className="mt-20"
-        value={0}
-        indicatorColor="primary"
-        textColor="primary"
-      >
-        <Tab label="Популярные" />
-        <Tab label="По порядку" />
-      </Tabs>
-      <Divider />
-      <AddCommentForm/>
-      <div className="mb-20" />
-      {items.map((item) => (
-        <Comment
-          key={item.id}
-          user={item.user}
-          text={item.text}
-          createdAt={item.createdAt}
-        />
-      ))}
-     </div>
+      <div className="container">
+        <Typography variant="h6" className="mb-20">
+          42 комментария
+        </Typography>
+        <Tabs
+          className="mt-20"
+          value={active}
+          indicatorColor="primary"
+          textColor="primary"
+        >
+          <Tab onClick={()=> setActive(0)} label="Популярные" />
+          <Tab onClick={()=> setActive(1)} label="По порядку" />
+        </Tabs>
+        <Divider />
+        <AddCommentForm />
+        <div className="mb-20" />
+        {items.map((item) => (
+          <Comment
+            key={item.id}
+            user={item.user}
+            text={item.text}
+            createdAt={item.createdAt}
+          />
+        ))}
+      </div>
     </Paper>
   );
 };
