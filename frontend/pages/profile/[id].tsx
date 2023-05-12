@@ -30,7 +30,7 @@ export default function Profile() {
               className="mt-10"
               variant="h4"
             >
-              Amon Bower
+              Andrey Chebanov
             </Typography>
           </div>
           <div>
