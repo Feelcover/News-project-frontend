@@ -24,10 +24,12 @@ export const LeftMenu: React.FC = () => {
         {menu.map((obj) => (
           <li key={obj.path}>
             <Link href={obj.path}>
-              <Button>
-                {obj.icon}
-                {obj.text}
-              </Button>
+              <a>
+                <Button>
+                  {obj.icon}
+                  {obj.text}
+                </Button>
+              </a>
             </Link>
           </li>
         ))}
