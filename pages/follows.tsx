@@ -1,9 +1,9 @@
 import React from 'react'
 
-const follows = () => {
+const Follows = () => {
   return (
     <div>Тут будет страница подписок</div>
   )
 }
 
-export default follows
+export default Follows
