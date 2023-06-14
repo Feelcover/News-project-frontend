@@ -1,8 +1,11 @@
 import React from 'react'
+import { MainLayout } from '../layouts/MainLayout'
 
 const Messages = () => {
   return (
-    <div>Тут будет страница сообщений</div>
+    <MainLayout>
+      <h1>Тут будет страница сообщений</h1>
+    </MainLayout>
   )
 }
 
