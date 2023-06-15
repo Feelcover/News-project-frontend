@@ -7,7 +7,7 @@ export const theme = createTheme({
     },
   },
   overrides: {
-    MuiPopover: {},
+    MuiDialog: {},
     MuiButton: {
       root: {
         borderRadius: '8px',

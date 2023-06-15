@@ -1,6 +1,16 @@
 import React from "react";
 import Link from "next/link";
-import { Paper, Button, IconButton, Avatar, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@material-ui/core";
+import {
+  Paper,
+  Button,
+  IconButton,
+  Avatar,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@material-ui/core";
 import {
   SearchOutlined as SearchIcon,
   SmsOutlined as MessageIcon,
@@ -12,6 +22,17 @@ import {
 import styles from "./Header.module.scss";
 
 export const Header: React.FC = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className="d-flex align-center">
@@ -35,14 +56,14 @@ export const Header: React.FC = () => {
         </div>
       </div>
       <Link href="/write">
-      <a>
-      <Button variant="contained" className={styles.penButton}>
-          Новая запись
-        </Button>
-      </a>
-       </Link>
+        <a>
+          <Button variant="contained" className={styles.penButton}>
+            Новая запись
+          </Button>
+        </a>
+      </Link>
       <div className="d-flex align-center">
-        <IconButton>
+        <IconButton onClick={handleClickOpen}>
           <MessageIcon />
         </IconButton>
         <IconButton>
@@ -60,28 +81,18 @@ export const Header: React.FC = () => {
         </Link>
       </div>
       <Dialog
-        fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
+
         <DialogContent>
           <DialogContentText>
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Disagree
-          </Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
+
       </Dialog>
     </Paper>
   );
