@@ -32,3 +32,13 @@
     }
   }
 }
+
+.mailButtonWrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p{
+    padding: 8px;
+    cursor: pointer;
+  }
+}
