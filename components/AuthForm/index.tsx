@@ -4,10 +4,11 @@ import {
   Dialog,
   DialogContent,
   DialogContentText,
+  Divider,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import styles from "./AuthForm.module.scss";
-import { style } from "@mui/system";
 
 interface AuthFormProps {
   onClose: () => void;
@@ -16,6 +17,7 @@ interface AuthFormProps {
 
 export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
   const [authType, setAuthType] = React.useState<"main" | "email">("main");
+
 
   return (
     <Dialog
@@ -116,7 +118,36 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
           )
         : (
           <div>
-            
+                    <form>
+          <TextField
+            className="mb-20"
+            size="small"
+            label="Почта"
+            variant="outlined"
+            fullWidth
+            required
+          />
+          <TextField
+            className="mb-20"
+            size="small"
+            label="Пароль"
+            type="password"
+            variant="outlined"
+            fullWidth
+            required
+          />
+          <TextField
+            size="small"
+            label="Пароль"
+            variant="outlined"
+            fullWidth
+            required
+          />
+          <Divider className="mt-30 mb-20" />
+          <Button color="primary" variant="contained">
+            Сохранить изменения
+          </Button>
+        </form>
           </div>
         ) }
           </div>
