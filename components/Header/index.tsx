@@ -4,20 +4,13 @@ import {
   Paper,
   Button,
   IconButton,
-  Avatar,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Typography,
 } from "@material-ui/core";
 import {
   SearchOutlined as SearchIcon,
   SmsOutlined as MessageIcon,
   Menu as MenuIcon,
-  ExpandMoreOutlined as ArrowBottom,
   NotificationsNoneOutlined as NotificationIcon,
+  AccountCircleOutlined as UserIcon
 } from "@material-ui/icons";
 
 import styles from "./Header.module.scss";
@@ -65,13 +58,13 @@ export const Header: React.FC = () => {
         </a>
       </Link>
       <div className="d-flex align-center">
-        <IconButton onClick={handleClickOpen}>
+        <IconButton>
           <MessageIcon />
         </IconButton>
         <IconButton>
           <NotificationIcon />
         </IconButton>
-        <Link href="/profile/1">
+        {/* <Link href="/profile/1">
           <a className="d-flex align-center">
             <Avatar
               className={styles.avatar}
@@ -80,7 +73,11 @@ export const Header: React.FC = () => {
             />
             <ArrowBottom />
           </a>
-        </Link>
+        </Link> */}
+        <div className={styles.loginButton} onClick={handleClickOpen}>
+          <UserIcon/>
+          Войти
+        </div>
       </div>
     <AuthForm isOpen={open} onClose={handleClose}/>
     </Paper>

@@ -30,6 +30,22 @@
   letter-spacing: 0 !important;
 }
 
+.loginButton {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover{
+    color: darken(#fff4e2, 65%)
+  }
+}
+
 .searchBlock {
   position: relative;
   margin-right: 15px;
