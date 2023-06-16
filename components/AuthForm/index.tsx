@@ -15,7 +15,7 @@ interface AuthFormProps {
 }
 
 export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
-  const [authType, setAuthType] = React.useState<"main" | "login" >("main");
+  const [authType, setAuthType] = React.useState<"main" | "login">("main");
 
   return (
     <Dialog
@@ -28,9 +28,16 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
       <DialogContent>
         <DialogContentText>
           <div className={styles.content}>
-            <Typography className={styles.title}>
-              {authType === "main" ? "Вход в учетную запись" : "Войти через почту"}
-            </Typography>
+            <div className={styles.authTitleBox}>
+              <Typography className={styles.title}>
+                {authType === "main"
+                  ? "Вход в учетную запись"
+                  : "Войти через почту или"}
+              </Typography>
+              <Button color="primary" variant="text">
+                Зарегистрироваться
+              </Button>
+            </div>
             {authType === "main" && (
               <>
                 <div>
@@ -119,7 +126,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
                 </div>
               </>
             )}
-            
+
             {authType === "login" && (
               <div>
                 <form>
@@ -141,12 +148,12 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
                     required
                   />
 
-                 <div className={styles.mailButtonWrapper}>
-                 <Button color="primary" variant="contained">
-                    Войти
-                  </Button>
-                  <p onClick={() => setAuthType("main")}> &lt; Назад</p>
-                 </div>
+                  <div className={styles.mailButtonWrapper}>
+                    <Button color="primary" variant="contained">
+                      Войти
+                    </Button>
+                    <p onClick={() => setAuthType("main")}> &lt; Назад</p>
+                  </div>
                 </form>
               </div>
             )}
