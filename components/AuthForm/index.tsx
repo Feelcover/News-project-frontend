@@ -15,7 +15,7 @@ interface AuthFormProps {
 }
 
 export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
-  const [authType, setAuthType] = React.useState<"main" | "email">("main");
+  const [authType, setAuthType] = React.useState<"main" | "login" >("main");
 
   return (
     <Dialog
@@ -31,7 +31,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
             <Typography className={styles.title}>
               {authType === "main" ? "Вход в учетную запись" : "Войти через почту"}
             </Typography>
-            {authType === "main" ? (
+            {authType === "main" && (
               <>
                 <div>
                   <Button className="mb-15" variant="contained" fullWidth>
@@ -74,9 +74,9 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
                     className="mb-15"
                     variant="contained"
                     fullWidth
-                    onClick={() => setAuthType("email")}
+                    onClick={() => setAuthType("login")}
                   >
-                    <svg viewBox="0 0 24 24" id="v_email">
+                    <svg viewBox="0 0 24 24" id="v_login">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -118,7 +118,9 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
                   </Button>
                 </div>
               </>
-            ) : (
+            )}
+            
+            {authType === "login" && (
               <div>
                 <form>
                   <TextField
