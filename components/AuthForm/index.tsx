@@ -32,10 +32,10 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
               <Typography className={styles.title}>
                 {authType === "main"
                   ? "Вход в учетную запись"
-                  : "Войти через почту или"}
+                  : "Войти через почту"}
               </Typography>
               <Button color="primary" variant="text">
-                Зарегистрироваться
+              Регистрация
               </Button>
             </div>
             {authType === "main" && (
