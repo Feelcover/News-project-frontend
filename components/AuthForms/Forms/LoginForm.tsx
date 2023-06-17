@@ -1,12 +1,16 @@
 import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 import styles from '../Auth.module.scss'
+import {useForm} from 'react-hook-form'
 
 interface LoginFormProps {
   backTo:() => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
+
+  const form = useForm();
+
   return (
     <div>
     <form>
