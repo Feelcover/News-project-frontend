@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import styles from "./Auth.module.scss";
+import MainForm from "./Forms/MainForm";
 
 interface AuthFormProps {
   onClose: () => void;
@@ -39,7 +40,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
               </Button>
             </div>
             {authType === "main" && (
-
+              <MainForm setMain={() => setAuthType("login")}/>
             )}
 
             {authType === "login" && (

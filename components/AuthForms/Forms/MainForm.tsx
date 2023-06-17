@@ -1,12 +1,12 @@
 import { Button } from '@material-ui/core'
 import React from 'react'
-import styles from './Auth.module.css'
+import styles from '../Auth.module.scss'
 
 interface MainProps {
-    setType:()=>
+    setMain:()=> void;
 }
 
-const MainForm = ({setType}) => {
+const MainForm: React.FC<MainProps> = ({setMain}) => {
   return (
     <>
     <div>
@@ -50,7 +50,7 @@ const MainForm = ({setType}) => {
         className="mb-15"
         variant="contained"
         fullWidth
-        onClick={() => setAuthType("login")}
+        onClick={setMain}
       >
         <svg viewBox="0 0 24 24" id="v_login">
           <path
@@ -97,4 +97,4 @@ const MainForm = ({setType}) => {
   )
 }
 
-export default Main
+export default MainForm

@@ -2,8 +2,8 @@ import React from 'react'
 
 const RegisterForm = () => {
   return (
-    <div>Register</div>
+    <div></div>
   )
 }
 
-export default Register
+export default RegisterForm
