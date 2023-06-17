@@ -40,7 +40,7 @@ const RegisterForm:React.FC<RegisterFormProps> = ({backTo}) => {
         <Button color="primary" variant="contained">
           Зарегистрироваться
         </Button>
-        <p onClick={backTo}> &lt; Назад</p>
+        <Button color="primary" variant="text" onClick={backTo}>Вход</Button>
       </div>
     </form>
   </div>
