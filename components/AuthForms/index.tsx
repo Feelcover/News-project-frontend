@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import styles from "./Auth.module.scss";
 import MainForm from "./Forms/MainForm";
+import LoginForm from "./Forms/LoginForm";
 
 interface AuthFormProps {
   onClose: () => void;
@@ -44,34 +45,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
             )}
 
             {authType === "login" && (
-              <div>
-                <form>
-                  <TextField
-                    className="mb-20"
-                    size="small"
-                    label="Почта"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-                  <TextField
-                    className="mb-20"
-                    size="small"
-                    label="Пароль"
-                    type="password"
-                    variant="outlined"
-                    fullWidth
-                    required
-                  />
-
-                  <div className={styles.mailButtonWrapper}>
-                    <Button color="primary" variant="contained">
-                      Войти
-                    </Button>
-                    <p onClick={() => setAuthType("main")}> &lt; Назад</p>
-                  </div>
-                </form>
-              </div>
+              <LoginForm setLogin={() => setAuthType("main")}/>
             )}
           </div>
         </DialogContentText>
