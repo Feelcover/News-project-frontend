@@ -2,6 +2,9 @@ import { Button, TextField } from '@material-ui/core'
 import React from 'react'
 import styles from '../Auth.module.scss'
 import {useForm} from 'react-hook-form'
+import {yupResolver} from '@hookform/resolvers/yup'
+import { LoginFormValidation } from '../../../utils/validations/loginValidation'
+
 
 interface LoginFormProps {
   backTo:() => void;
@@ -9,7 +12,9 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
 
-  const form = useForm();
+  const form = useForm({
+    resolver: yupResolver(LoginFormValidation),
+  });
 
   return (
     <div>
