@@ -3,10 +3,10 @@ import React from 'react'
 import styles from '../Auth.module.scss'
 
 interface LoginFormProps {
-  setLogin:() => void;
+  backTo:() => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({setLogin}) => {
+const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
   return (
     <div>
     <form>
@@ -32,7 +32,7 @@ const LoginForm: React.FC<LoginFormProps> = ({setLogin}) => {
         <Button color="primary" variant="contained">
           Войти
         </Button>
-        <p onClick={setLogin}> &lt; Назад</p>
+        <p onClick={backTo}> &lt; Назад</p>
       </div>
     </form>
   </div>
