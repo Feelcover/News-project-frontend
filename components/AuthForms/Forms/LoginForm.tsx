@@ -17,7 +17,6 @@ const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
     resolver: yupResolver(LoginFormValidation),
   });
   const onSubmit = data => console.log(data);
-  console.log(formState.errors);
   
 
   return (
@@ -25,6 +24,8 @@ const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         {...register('email')}
+        error={!!formState.errors.email?.message}
+        helperText={formState.errors.email?.message}
         className="mb-20"
         name='email'
         size="small"
@@ -35,6 +36,8 @@ const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
       />
       <TextField
         {...register('password')}
+        helperText={formState.errors.password?.message}
+        error={!!formState.errors.password?.message}
         className="mb-20"
         name='password'
         size="small"
