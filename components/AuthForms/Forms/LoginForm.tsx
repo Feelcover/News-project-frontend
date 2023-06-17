@@ -12,15 +12,20 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
 
-  const form = useForm({
+  const {handleSubmit, register} = useForm({
+    mode: 'onChange',
     resolver: yupResolver(LoginFormValidation),
   });
+  const onSubmit = data => console.log(data);
+  
 
   return (
     <div>
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         className="mb-20"
+        name='email'
+        innerRef={register}
         size="small"
         label="Почта"
         variant="outlined"
@@ -29,6 +34,7 @@ const LoginForm: React.FC<LoginFormProps> = ({backTo}) => {
       />
       <TextField
         className="mb-20"
+        name='password'
         size="small"
         label="Пароль"
         type="password"
