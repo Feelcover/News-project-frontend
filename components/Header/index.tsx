@@ -14,7 +14,7 @@ import {
 } from "@material-ui/icons";
 
 import styles from "./Header.module.scss";
-import { AuthForm } from "../AuthForm";
+import { AuthForm } from "../AuthForms";
 
 export const Header: React.FC = () => {
   const [open, setOpen] = React.useState(false);
