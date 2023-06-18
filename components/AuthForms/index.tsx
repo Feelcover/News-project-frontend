@@ -35,13 +35,19 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
           <div className={styles.content}>
             <div className={styles.authTitleBox}>
               <Typography className={styles.title}>
-              {authType === "main" && "Вход в учетную запись"}
+                {authType === "main" && "Вход в учетную запись"}
                 {authType === "login" && "Войти через почту"}
                 {authType === "register" && "Регистрация аккаунта"}
               </Typography>
-             {authType !== "register" && (<Button color="primary" variant="text" onClick={() => setAuthType("register")}>
-                Регистрация
-              </Button>)}
+              {authType !== "register" && (
+                <Button
+                  color="primary"
+                  variant="text"
+                  onClick={() => setAuthType("register")}
+                >
+                  Регистрация
+                </Button>
+              )}
             </div>
             {authType === "main" && (
               <MainForm setMain={() => setAuthType("login")} />
@@ -52,7 +58,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onClose, isOpen }) => {
             )}
 
             {authType === "register" && (
-              <RegisterForm backTo={() => setAuthType("main")}/>
+              <RegisterForm backTo={() => setAuthType("main")} />
             )}
           </div>
         </DialogContentText>
