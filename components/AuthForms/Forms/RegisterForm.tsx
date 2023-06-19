@@ -25,7 +25,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           <FormField name="email" label="Почта" required={true} />
           <FormField name="password" label="Пароль" required={true} />
           <div className={styles.mailButtonWrapper}>
-            <Button color="primary" variant="contained" type="submit">
+            <Button disabled={!form.formState.isValid} color="primary" variant="contained" type="submit">
               Зарегистрироваться
             </Button>
             <Button color="primary" variant="text" onClick={backTo}>
