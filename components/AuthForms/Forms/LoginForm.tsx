@@ -1,9 +1,10 @@
 import { Button, TextField } from "@material-ui/core";
 import React from "react";
 import styles from "../Auth.module.scss";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginFormValidation } from "../../../utils/validations/loginValidation";
+import FormField from "../FormField/FormField";
 
 interface LoginFormProps {
   backTo: () => void;
@@ -18,33 +19,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
 
   return (
     <div>
+      <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <TextField
-          {...form.register("email")}
-          error={!!form.formState.errors.email?.message}
-          helperText={form.formState.errors.email?.message}
-          className="mb-20"
-          name="email"
-          size="small"
-          label="Почта"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <TextField
-          {...form.register("password")}
-          helperText={form.formState.errors.password?.message}
-          error={!!form.formState.errors.password?.message}
-          className="mb-20"
-          name="password"
-          size="small"
-          label="Пароль"
-          type="password"
-          variant="outlined"
-          fullWidth
-          required
-        />
-
+      <FormField name="email" label="Почта" required={true} />
+      <FormField name="password" label="Пароль" required={true} />
         <div className={styles.mailButtonWrapper}>
           <Button color="primary" variant="contained" type="submit">
             Войти
@@ -52,6 +30,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
           <p onClick={backTo}> &lt; Назад</p>
         </div>
       </form>
+      </FormProvider>
     </div>
   );
 };
