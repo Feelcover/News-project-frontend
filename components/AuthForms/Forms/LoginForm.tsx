@@ -1,4 +1,4 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import React from "react";
 import styles from "../Auth.module.scss";
 import { FormProvider, useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
   const form = useForm({
-    mode: "onSubmit",
+    mode: "onChange",
     resolver: yupResolver(LoginFormValidation),
   });
   const onSubmit = (data) => console.log(data);
