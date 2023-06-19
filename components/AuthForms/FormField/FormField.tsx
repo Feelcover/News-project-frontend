@@ -1,14 +1,19 @@
+import { TextField } from "@material-ui/core";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-const FormField = () => {
-  const {register, formState} = useFormContext();
-  
+interface FormFieldProps {
+  name: string;
+}
+
+const FormField: React.FC<FormFieldProps> = ({ name }) => {
+  const { register, formState } = useFormContext();
+
   return (
     <TextField
-      {...register("email")}
-      error={}
-      helperText={}
+      {...register(name)}
+      error={!!formState.errors[name]?.message}
+      helperText={!!formState.errors[name]?.message}
       className="mb-20"
       name="email"
       size="small"
