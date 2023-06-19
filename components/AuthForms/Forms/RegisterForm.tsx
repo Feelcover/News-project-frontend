@@ -1,7 +1,7 @@
 import { Button, TextField } from "@material-ui/core";
 import React from "react";
 import styles from "../Auth.module.scss";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterFormValidation } from "../../../utils/validations/registerValidation";
 
@@ -10,18 +10,19 @@ interface RegisterFormProps {
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
-  const { handleSubmit, register, formState } = useForm({
+  const form = useForm({
     mode: "onChange",
     resolver: yupResolver(RegisterFormValidation),
   });
   const onSubmit = (data) => console.log(data);
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <FormProvider {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <TextField
-          {...register("name")}
-          error={!!formState.errors.name?.message}
-          helperText={formState.errors.name?.message}
+          {...form.register("name")}
+          error={!!form.formState.errors.name?.message}
+          helperText={form.formState.errors.name?.message}
           name="name"
           className="mb-20"
           size="small"
@@ -31,9 +32,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           required
         />
         <TextField
-          {...register("email")}
-          error={!!formState.errors.email?.message}
-          helperText={formState.errors.email?.message}
+          {...form.register("email")}
+          error={!!form.formState.errors.email?.message}
+          helperText={form.formState.errors.email?.message}
           name="email"
           className="mb-20"
           size="small"
@@ -43,9 +44,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           required
         />
         <TextField
-          {...register("password")}
-          error={!!formState.errors.password?.message}
-          helperText={formState.errors.password?.message}
+          {...form.register("password")}
+          error={!!form.formState.errors.password?.message}
+          helperText={form.formState.errors.password?.message}
           name="password"
           className="mb-20"
           size="small"
@@ -65,6 +66,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           </Button>
         </div>
       </form>
+      </FormProvider>
+
     </div>
   );
 };
