@@ -4,9 +4,10 @@ import { useFormContext } from "react-hook-form";
 
 interface FormFieldProps {
   name: string;
+  label: string;
 }
 
-const FormField: React.FC<FormFieldProps> = ({ name }) => {
+const FormField: React.FC<FormFieldProps> = ({ name, label }) => {
   const { register, formState } = useFormContext();
 
   return (
@@ -15,12 +16,11 @@ const FormField: React.FC<FormFieldProps> = ({ name }) => {
       error={!!formState.errors[name]?.message}
       helperText={!!formState.errors[name]?.message}
       className="mb-20"
-      name="email"
+      name={name}
       size="small"
-      label="Почта"
+      label={label}
       variant="outlined"
       fullWidth
-      required
     />
   );
 };
