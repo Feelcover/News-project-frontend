@@ -16,6 +16,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     resolver: yupResolver(RegisterFormValidation),
   });
   const onSubmit = (data) => console.log(data);
+  
   return (
     <div>
       <FormProvider {...form}>
@@ -24,7 +25,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           <FormField name="email" label="Почта" required={true} />
           <FormField name="password" label="Пароль" required={true} />
           <div className={styles.mailButtonWrapper}>
-            <Button color="primary" variant="contained">
+            <Button color="primary" variant="contained" type="submit">
               Зарегистрироваться
             </Button>
             <Button color="primary" variant="text" onClick={backTo}>
