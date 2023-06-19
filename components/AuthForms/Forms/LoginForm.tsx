@@ -10,7 +10,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
-  const { handleSubmit, register, formState } = useForm({
+  const form = useForm({
     mode: "onSubmit",
     resolver: yupResolver(LoginFormValidation),
   });
@@ -18,11 +18,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <TextField
-          {...register("email")}
-          error={!!formState.errors.email?.message}
-          helperText={formState.errors.email?.message}
+          {...form.register("email")}
+          error={!!form.formState.errors.email?.message}
+          helperText={form.formState.errors.email?.message}
           className="mb-20"
           name="email"
           size="small"
@@ -32,9 +32,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
           required
         />
         <TextField
-          {...register("password")}
-          helperText={formState.errors.password?.message}
-          error={!!formState.errors.password?.message}
+          {...form.register("password")}
+          helperText={form.formState.errors.password?.message}
+          error={!!form.formState.errors.password?.message}
           className="mb-20"
           name="password"
           size="small"
