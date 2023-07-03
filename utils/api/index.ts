@@ -6,6 +6,6 @@ const instance = axios.create({
 
 export const UserApi = {
     async register() {
-
+        const data = await instance.post('auth/register')
     }
 }
