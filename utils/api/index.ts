@@ -1,11 +1,12 @@
 import axios from "axios";
+import { RegisterUser } from "./types";
 
 const instance = axios.create({
-    baseURL: "http://localhost:3001"
+  baseURL: "http://localhost:3001",
 });
 
 export const UserApi = {
-    async register(dto:) {
-        const data = await instance.post('auth/register')
-    }
-}
+  async register(registerUser: RegisterUser) {
+    const data = await instance.post("auth/register");
+  },
+};
