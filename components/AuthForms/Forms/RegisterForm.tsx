@@ -17,12 +17,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     mode: "onChange",
     resolver: yupResolver(RegisterFormValidation),
   });
-  
+
   const onSubmit = async (registerUser: RegisterUser) => {
     try {
       const data = await UserApi.register(registerUser);
+      console.log(data);
+      
     } catch (err) {
-      console.log(err);
+      alert('Ошибка при регистрации');
+      console.warn('Ошибка при регистрации', err);
     }
   };
   
