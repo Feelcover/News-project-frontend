@@ -8,12 +8,16 @@ import FormField from "../FormField/FormField";
 import { UserApi } from "../../../utils/api";
 import { RegisterUser } from "../../../utils/api/types";
 import { setCookie } from "nookies";
+import Alert from '@material-ui/lab/Alert';
+
 
 interface RegisterFormProps {
   backTo: () => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
+  const [errorMessage, setErrorMessage] = React.useState('');
+
   const form = useForm({
     mode: "onChange",
     resolver: yupResolver(RegisterFormValidation),
@@ -27,8 +31,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
         maxAge: 30 * 24 * 60 * 60,
         path: "/",
       });
+      setErrorMessage('');
     } catch (err) {
-      alert("Ошибка при регистрации");
+      if (err.response) {
+        setErrorMessage(err.response.data.message);
+      }
       console.warn("Ошибка при регистрации", err);
     }
   };
@@ -40,6 +47,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           <FormField name="fullName" label="ФИО" required={true} />
           <FormField name="email" label="Почта" required={true} />
           <FormField name="password" label="Пароль" required={true} />
+          {errorMessage && (
+            <Alert severity="error" className="mb-20">
+              {errorMessage}
+            </Alert>
+          )}
           <div className={styles.mailButtonWrapper}>
             <Button
               disabled={!form.formState.isValid || form.formState.isSubmitting}

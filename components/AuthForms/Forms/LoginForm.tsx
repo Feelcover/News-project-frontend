@@ -8,12 +8,15 @@ import FormField from "../FormField/FormField";
 import { LoginUser } from "../../../utils/api/types";
 import { UserApi } from "../../../utils/api";
 import { setCookie } from "nookies";
+import Alert from '@material-ui/lab/Alert';
 
 interface LoginFormProps {
   backTo: () => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
+  const [errorMessage, setErrorMessage] = React.useState('');
+
   const form = useForm({
     mode: "onChange",
     resolver: yupResolver(LoginFormValidation),
@@ -26,8 +29,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
         maxAge: 30 * 24 * 60 * 60,
         path: "/",
       });
+      setErrorMessage('');
     } catch (err) {
-      alert("Ошибка при авторизации");
+      if (err.response) {
+        setErrorMessage(err.response.data.message);
+      }
       console.warn("Ошибка при авторизации", err);
     }
   };
@@ -38,6 +44,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
       <form onSubmit={form.handleSubmit(onSubmit)}>
       <FormField name="email" label="Почта" required={true} />
       <FormField name="password" label="Пароль" required={true} />
+      {errorMessage && (
+            <Alert severity="error" className="mb-20">
+              {errorMessage}
+            </Alert>
+          )}
         <div className={styles.mailButtonWrapper}>
           <Button disabled={!form.formState.isValid || form.formState.isSubmitting} color="primary" variant="contained" type="submit">
             Войти
