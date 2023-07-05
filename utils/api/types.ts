@@ -7,7 +7,7 @@ export type RegisterUser = {
   fullName: string;
 } & LoginUser;
 
-export type ResRegisterUser = {
+export type ResponseUser = {
     createdAt: string;
     updatedAt: string;
     email: string;

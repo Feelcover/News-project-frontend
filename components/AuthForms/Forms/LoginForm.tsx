@@ -39,7 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
       <FormField name="email" label="Почта" required={true} />
       <FormField name="password" label="Пароль" required={true} />
         <div className={styles.mailButtonWrapper}>
-          <Button disabled={!form.formState.isValid} color="primary" variant="contained" type="submit">
+          <Button disabled={!form.formState.isValid || form.formState.isSubmitting} color="primary" variant="contained" type="submit">
             Войти
           </Button>
           <p onClick={backTo}> &lt; Назад</p>
