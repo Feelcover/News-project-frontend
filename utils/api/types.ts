@@ -13,5 +13,5 @@ export type ResRegisterUser = {
     email: string;
     fullName: string;
     id: number;
-    token: string;
+    access_token: string;
 }

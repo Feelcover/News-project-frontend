@@ -23,7 +23,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     try {
       const data = await UserApi.register(registerUser);
       console.log(data);
-      setCookie(null,  'authToken', data)
+      setCookie(null, "authToken", data.access_token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
     } catch (err) {
       alert("Ошибка при регистрации");
       console.warn("Ошибка при регистрации", err);
