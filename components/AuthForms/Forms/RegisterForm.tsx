@@ -5,7 +5,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterFormValidation } from "../../../utils/validations/registerValidation";
 import FormField from "../FormField/FormField";
-import { log } from "console";
+import { UserApi } from "../../../utils/api";
+import { RegisterUser } from "../../../utils/api/types";
 
 interface RegisterFormProps {
   backTo: () => void;
@@ -16,7 +17,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     mode: "onChange",
     resolver: yupResolver(RegisterFormValidation),
   });
-  const onSubmit = (data) => console.log(data);
+  
+  const onSubmit = async (registerUser: RegisterUser) => {
+    try {
+      const data = await UserApi.register(registerUser);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   
   return (
     <div>
