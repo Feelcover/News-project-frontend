@@ -7,6 +7,7 @@ import { RegisterFormValidation } from "../../../utils/validations/registerValid
 import FormField from "../FormField/FormField";
 import { UserApi } from "../../../utils/api";
 import { RegisterUser } from "../../../utils/api/types";
+import { setCookie } from "nookies";
 
 interface RegisterFormProps {
   backTo: () => void;
@@ -22,6 +23,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     try {
       const data = await UserApi.register(registerUser);
       console.log(data);
+      setCookie(null,  'authToken', data)
     } catch (err) {
       alert("Ошибка при регистрации");
       console.warn("Ошибка при регистрации", err);

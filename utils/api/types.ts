@@ -6,3 +6,12 @@ export type LoginUser = {
 export type RegisterUser = {
   fullName: string;
 } & LoginUser;
+
+export type ResRegisterUser = {
+    createdAt: string;
+    updatedAt: string;
+    email: string;
+    fullName: string;
+    id: number;
+    token: string;
+}
