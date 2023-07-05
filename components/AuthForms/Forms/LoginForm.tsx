@@ -5,6 +5,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginFormValidation } from "../../../utils/validations/loginValidation";
 import FormField from "../FormField/FormField";
+import { LoginUser } from "../../../utils/api/types";
+import { UserApi } from "../../../utils/api";
+import { setCookie } from "nookies";
 
 interface LoginFormProps {
   backTo: () => void;
@@ -15,7 +18,19 @@ const LoginForm: React.FC<LoginFormProps> = ({ backTo }) => {
     mode: "onChange",
     resolver: yupResolver(LoginFormValidation),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (loginUser: LoginUser) => {
+    try {
+      const data = await UserApi.login(loginUser);
+      console.log(data);
+      setCookie(null, "authToken", data.access_token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
+    } catch (err) {
+      alert("Ошибка при авторизации");
+      console.warn("Ошибка при авторизации", err);
+    }
+  };
 
   return (
     <div>
