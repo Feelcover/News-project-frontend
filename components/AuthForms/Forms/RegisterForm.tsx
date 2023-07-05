@@ -22,13 +22,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
     try {
       const data = await UserApi.register(registerUser);
       console.log(data);
-      
     } catch (err) {
-      alert('Ошибка при регистрации');
-      console.warn('Ошибка при регистрации', err);
+      alert("Ошибка при регистрации");
+      console.warn("Ошибка при регистрации", err);
     }
   };
-  
+
   return (
     <div>
       <FormProvider {...form}>
@@ -37,7 +36,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ backTo }) => {
           <FormField name="email" label="Почта" required={true} />
           <FormField name="password" label="Пароль" required={true} />
           <div className={styles.mailButtonWrapper}>
-            <Button disabled={!form.formState.isValid} color="primary" variant="contained" type="submit">
+            <Button
+              disabled={!form.formState.isValid || form.formState.isSubmitting}
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
               Зарегистрироваться
             </Button>
             <Button color="primary" variant="text" onClick={backTo}>
